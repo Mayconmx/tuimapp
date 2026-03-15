@@ -14,6 +14,7 @@ export type RootStackParamList = {
   Profile: {
     user: UserDto;
     uuid: string;
+    changed: boolean;
   };
   [Global.SCREEN_PROFILE_ADVANCED_SETTINGS]: {
     user: UserDto
