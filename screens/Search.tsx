@@ -74,12 +74,13 @@ const Search = ({ route, navigation }: Props) => {
   useFocusEffect(
     React.useCallback(() => {
       Global.GetStorage(Global.STORAGE_RELOAD_SEARCH).then(value => {
+        if(value)
         if (value == Global.STORAGE_TRUE) {
           load();
           Global.SetStorage(Global.STORAGE_RELOAD_SEARCH, "");
         } else {
           Global.GetStorage(Global.STORAGE_SEARCH_REMOVE_TOP).then(value => {
-            if (value && value === Global.STORAGE_TRUE) {
+            if (value === Global.STORAGE_TRUE) {
               swiper.current?.swipeTop();
               let resultsCopy = [...results];
               resultsCopy.shift();
@@ -93,7 +94,7 @@ const Search = ({ route, navigation }: Props) => {
           });
         }
       });
-    }, [route, navigation])
+    }, [route, navigation, results])
   );
 
   async function load() {
