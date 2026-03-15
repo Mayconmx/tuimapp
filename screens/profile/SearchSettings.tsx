@@ -46,6 +46,7 @@ const SearchSettings = ({ route }: Props) => {
   const [distanceText, setDistanceText] = React.useState(distance);
   const [distanceUnit] = React.useState("km"); // todo: setDistanceUnit
   const [params, setParams] = React.useState<SearchParams>();
+  const [saveParamFlag, setSaveParamFlag] = React.useState(false);
   const [showOutsideParams, setShowOutsideParams] = React.useState(true);
 
   async function load() {
@@ -110,23 +111,28 @@ const SearchSettings = ({ route }: Props) => {
     //TODO
     //let isIS = data.user.units == UnitsEnum.SI;
     let saveParam = false;
-    if(params?.distance) {
+    if (params?.distance != undefined) {
       setDistance(params.distance);
+      setDistanceText(params.distance);
       saveParam = true;
     }
     if (params?.showOutsideParameters !== undefined) {
       setShowOutsideParams(params.showOutsideParameters);
       saveParam = true;
     }
-    if(saveParam) {
+    if (saveParam) {
       saveParams()
     }
+
   }, [params]);
 
   async function saveParams() {
     if (params) {
       await Global.SetStorage(Global.STORAGE_ADV_SEARCH_PARAMS, JSON.stringify(params));
-      setChanged(true);
+      if (saveParamFlag) {
+        updateChanged(true);
+      }
+      setSaveParamFlag(true);
     }
   }
 
@@ -138,7 +144,7 @@ const SearchSettings = ({ route }: Props) => {
 
     let intention: UserIntention = { id: num, text: "" };
     data.user.intention = intention;
-    setChanged(true);
+    updateChanged(true);
   }
 
   async function updateGenders(genderId: number, state: boolean) {
@@ -154,21 +160,27 @@ const SearchSettings = ({ route }: Props) => {
         if (item.id === genderId) data.user.preferedGenders.splice(index, 1);
       });
     }
-    setChanged(true);
+    updateChanged(true);
   }
 
   async function updateMinAge(num: number) {
     await Global.Fetch(Global.format(URL.USER_UPDATE_MIN_AGE, String(num)), 'post');
     setMinAge(num);
     data.user.preferedMinAge = num;
-    setChanged(true);
+    updateChanged(true);
   }
 
   async function updateMaxAge(num: number) {
     await Global.Fetch(Global.format(URL.USER_UPDATE_MAX_AGE, String(num)), 'post');
     setMaxAge(num);
     data.user.preferedMaxAge = num;
-    setChanged(true);
+    updateChanged(true);
+  }
+
+  async function updateChanged(value: boolean) {
+    if (!loading) {
+      setChanged(value);
+    }
   }
 
   return (
@@ -180,9 +192,7 @@ const SearchSettings = ({ route }: Props) => {
       }
 
       <VerticalView onRefresh={load}>
-
         <View style={{ gap: 12 }}>
-
           {!settingsIgnoreIntention &&
             <View>
               <SelectModal disabled={!showIntention} multi={false} minItems={1} title={i18n.t('profile.intention.title')}
