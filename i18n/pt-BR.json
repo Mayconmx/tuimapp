@@ -1,0 +1,293 @@
+{
+    "imprint": "Contato",
+    "tos": "Termos de Uso",
+    "privacy-policy": "Política de Privacidade",
+    "auth": {
+        "email": "Entrar",
+        "google": "Entrar com Google",
+        "facebook": "Entrar com Facebook"
+    },
+    "first-name": "Nome",
+    "dob": "Data de nascimento",
+    "optional": "Opcional",
+    "register": {
+        "title": "Cadastro",
+        "subtitle": "Criar uma nova conta",
+        "agree": "Ao me cadastrar, concordo com os Termos de Uso e a Política de Privacidade.",
+        "referral-code": "Código de indicação",
+        "asterisk-warning": "Campos com asterisco (*) não poderão ser alterados futuramente",
+        "gender": "Seu gênero",
+        "age-subtitle": "Você tem %s anos"
+    },
+    "gender": {
+        "male": "Homem",
+        "female": "Mulher",
+        "other": "Não-binário"
+    },
+    "profile": {
+        "onboarding": {
+            "profile-picture": "Sou assim",
+            "profile-picture-subtitle": "Mais fotos podem ser adicionadas depois",
+            "description": "Algo sobre mim",
+            "description-placeholder": "Adoro sorvete! 🍨",
+            "interests": "Eu gosto muito dessas coisas...",
+            "match": {
+                "title": "Comece a receber curtidas!",
+                "subtitle": "Mensagens só podem ser enviadas após um match"
+            },
+            "submit": "Vamos lá!"
+        },
+        "intention": {
+            "title": "O que eu quero",
+            "meet": "Conhecer pessoas novas",
+            "date": "Um relacionamento",
+            "sex": "Intimidade sexual",
+            "warning": "Só pode ser alterado novamente após 24 horas"
+        },
+        "gender": "Procurando por...",
+        "interest-alert-delete": "Remover interesse '%s'?",
+        "units": {
+            "title": "Unidades",
+            "si": "SI",
+            "imperial": "Imperial"
+        },
+        "age": {
+            "min": "Idade mínima",
+            "max": "Idade máxima"
+        },
+        "misc-info": {
+            "drugs": {
+                "alcohol": "Beber",
+                "tobacco": "Fumar",
+                "cannabis": "Cannabis",
+                "other": "Drogas pesadas"
+            },
+            "kids": {
+                "title": "Filhos",
+                "no": "Sem filhos",
+                "yes": "Tem filhos"
+            },
+            "family": {
+                "title": "Planos de família",
+                "no": "Não quer filhos",
+                "yes": "Quer filhos",
+                "not-sure": "Não tenho certeza"
+            },
+            "relationship-type": {
+                "title": "Tipo de relacionamento",
+                "monogamous": "Monogamia",
+                "polyamorous": "Não-monogamia"
+            },
+            "gender-identity": {
+                "title": "Identidade de gênero",
+                "cis": "Cis",
+                "trans": "Trans"
+            },
+            "politics": {
+                "title": "Política",
+                "left": "Esquerda",
+                "right": "Direita",
+                "moderate": "Moderado"
+            },
+            "religion": {
+                "title": "Religião",
+                "yes": "Religioso",
+                "no": "Sem religião"
+            },
+            "relationship": {
+                "title": "Status de relacionamento",
+                "single": "Solteiro(a)",
+                "taken": "Em um relacionamento",
+                "open": "Relacionamento aberto",
+                "other": "É complicado"
+            },
+            "none": "Nenhum",
+            "yes": "Sim",
+            "no": "Não",
+            "sometimes": "Às vezes"
+        },
+        "intention-toast": "Intenção alterada. Você não poderá alterá-la por mais 24 horas.",
+        "preferred-age-range": "Faixa etária preferida",
+        "donated": "Doado",
+        "block": "Bloquear",
+        "unblock": "Desbloquear",
+        "delete-account": "Excluir conta",
+        "delete-account-success": "Sucesso! Siga as instruções no e-mail que enviamos.",
+        "download-userdata": "Baixar dados do usuário",
+        "download-userdata-success": "Dados do usuário baixados!",
+        "photos": {
+            "manage": "Gerenciar fotos",
+            "delete": "Excluir foto?",
+            "change-profile-pic": "Alterar foto de perfil",
+            "add": "Adicionar foto"
+        },
+        "logout": "Sair",
+        "report": {
+            "title": "Denunciar",
+            "subtitle": "Denunciar usuário por violar os Termos de Uso",
+            "fake": "Perfil falso, golpe ou spam",
+            "inappropriate": "Conteúdo inapropriado",
+            "minor": "Menor de idade",
+            "illegal": "Conteúdo ilegal",
+            "other": "Outro"
+        },
+        "active-state": {
+            "1": "Online",
+            "2": "Ativo hoje"
+        },
+        "interest": "Interesse",
+        "interests-common": "Interesses em comum",
+        "profile-page": {
+            "description": "Sobre mim",
+            "interests": "Meus interesses",
+            "basics": "Meus dados",
+            "additional": "Informações adicionais"
+        },
+        "screen": {
+            "pictures": "Gerenciar fotos",
+            "profile": "Editar perfil",
+            "search": "Preferências de busca",
+            "settings": "Configurações",
+            "advanced-settings": "Configurações avançadas",
+            "prompts": "Prompts"
+        },
+        "settings": {
+            "colors": {
+                "title": "Cores",
+                "primary": "Primária",
+                "secondary": "Secundária"
+            },
+            "notification": "Notificações",
+            "email": {
+                "like": "Receber e-mails de curtidas e matches",
+                "chat": "Receber e-mails de chats"
+            }
+        },
+        "search": {
+            "settings": {
+                "distance": "Distância",
+                "min-gps-timeout": "Tempo limite GPS (ms)",
+                "location": {
+                    "latitude": "Latitude",
+                    "longitude": "Longitude"
+                },
+                "show-outside-parameters": "Mostrar perfis fora das minhas preferências quando esgotarem"
+            },
+            "report-card": "Atividade suspeita detectada no perfil de %s. Mostrar assim mesmo?",
+            "report-card-dismiss": "Ocultar perfil",
+            "report-card-show": "Mostrar assim mesmo",
+            "report-card-threshold": "Limite para atividades suspeitas"
+        },
+        "prompts": {
+            "title": "Seus prompts de perfil",
+            "subtitle": "Gerencie seus prompts",
+            "delete": "Excluir prompt?",
+            "add": "Adicionar novo prompt",
+            "1": "Fico louco(a) por",
+            "2": "Habilidades inusitadas",
+            "3": "Não consigo parar de falar sobre",
+            "4": "E se eu te dissesse que",
+            "5": "Minha opinião mais polêmica",
+            "6": "A chave do meu coração",
+            "7": "Quero alguém que",
+            "8": "Sou estranhamente atraído(a) por",
+            "9": "Bandeiras verdes que procuro",
+            "10": "Me ensine algo sobre",
+            "11": "Me convença sobre",
+            "12": "Meu maior fracasso num encontro",
+            "13": "A pior ideia que já tive",
+            "14": "Nunca na vida eu",
+            "15": "Juntos, poderíamos",
+            "16": "O encontro perfeito em 3 palavras",
+            "17": "O que gosto em mim",
+            "18": "Meu talento inútil",
+            "19": "Eu, mas em emojis",
+            "20": "Deslize para a direita se"
+        },
+        "verification": {
+            "info-1": "Verifique seu perfil para provar que você é real",
+            "info-2": "Outras pessoas também podem votar na sua autenticidade",
+            "info-3": "Envie uma foto sua segurando um papel com os seguintes caracteres escritos à mão",
+            "info-4": "Certifique-se de que seu rosto esteja completamente visível",
+            "info-5": "Você precisará verificar novamente se alterar sua foto de perfil",
+            "verified-no": "Não verificado",
+            "verified-by-users": "Verificado pela comunidade",
+            "verified-by-admin": "Verificado"
+        },
+        "tooltip": {
+            "donated": "Doado",
+            "blocks": "Bloqueios por usuários",
+            "reports": "Denúncias por usuários"
+        }
+    },
+    "cancel": "Cancelar",
+    "ok": "OK",
+    "navigation": {
+        "profile": "Perfil",
+        "chat": "Chat",
+        "search": "Busca",
+        "likes": "Curtidas",
+        "donate": "Doar"
+    },
+    "donate": {
+        "filter": {
+            "recent": "Recente",
+            "amount": "Valor"
+        }
+    },
+    "chat": {
+        "default": "Você deu match! Toque aqui para enviar uma mensagem :)",
+        "placeholder": "Escreva uma mensagem..."
+    },
+    "you": "Você",
+    "sort": "Ordenar",
+    "error": {
+        "generic": "Ocorreu um erro. Por favor, tente novamente."
+    },
+    "email": "E-mail",
+    "password": "Senha",
+    "captcha": {
+        "title": "Captcha",
+        "placeholder": "Digite o texto"
+    },
+    "register-email": "Cadastrar com e-mail",
+    "register-email-success": "Obrigado! Para concluir o cadastro, clique no link que enviamos para você.",
+    "register-password-warning": "Sua senha precisa ter pelo menos 7 caracteres e deve conter letras e números.",
+    "password-forget": "Esqueceu a senha?",
+    "password-reset": "Redefinir senha",
+    "password-reset-success": "Verifique seu e-mail e siga as instruções para redefinir sua senha.",
+    "likes-empty": {
+        "title": "Ainda sem curtidas",
+        "subtitle": "Não se preocupe, novos usuários entram todo dia. Ajustar suas preferências no perfil também pode gerar mais curtidas"
+    },
+    "convo-empty": {
+        "title": "Comece a conversar fazendo matches",
+        "subtitle": "Consiga mais matches enviando boas fotos e completando seu perfil"
+    },
+    "search-empty": {
+        "title": "Ops, acabou o estoque por aqui",
+        "subtitle": "Você já viu todos que combinam com suas preferências, mas novas pessoas entram todo dia.",
+        "button": "Mudar preferências"
+    },
+    "location": {
+        "no-permission": "Permissão de localização não concedida",
+        "no-signal": "Nenhum sinal de GPS encontrado"
+    },
+    "email-invalid": "Endereço de e-mail inválido.",
+    "likes": {
+        "received-likes": "Curtiram você",
+        "given-likes": "Curtidas dadas",
+        "hidden": "Usuários ocultados",
+        "blocked": "Usuários bloqueados"
+    },
+    "restart-apply-changes": "Reinicie o app para aplicar as alterações",
+    "compliment": {
+        "title": "Enviar um elogio",
+        "tooltip": "Toque aqui para enviar um elogio!"
+    },
+    "referral": {
+        "title": "Indicar para um amigo",
+        "copy": "Código de indicação copiado!",
+        "hint": "Se um novo usuário criar uma conta com seu código de indicação, ambos ganham um pequeno impulso permanente no perfil."
+    }
+}

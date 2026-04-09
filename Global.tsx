@@ -14,7 +14,6 @@ import FormData from "form-data";
 import { Buffer } from "buffer";
 import { cloneDeep } from 'lodash';
 
-export const FLAG_ENABLE_DONATION = true;
 
 export const navigationRef = createNavigationContainerRef<RootStackParamList>()
 export const INDEX_LOGIN = "0"
@@ -29,7 +28,6 @@ export const STORAGE_YOUR_PROFILE = "your-profile"
 export const STORAGE_YOUR_CHAT = "chat"
 export const STORAGE_YOUR_CHAT_DETAIL = "chat/%s"
 export const STORAGE_LIKES = "likes"
-export const STORAGE_DONATE = "donate"
 export const STORAGE_LATITUDE = "latitude"
 export const STORAGE_LONGITUDE = "longitude"
 export const STORAGE_RELOAD_SEARCH = "reloadSearch";
@@ -52,7 +50,6 @@ export const SCREEN_YOURPROFILE = "YourProfile"
 export const SCREEN_CHAT = "Chat"
 export const SCREEN_SEARCH = "Search"
 export const SCREEN_LIKES = "Likes"
-export const SCREEN_DONATE = "Donate"
 
 export const SCREEN_PROFILE_PICTURES = "Profile.Pictures"
 export const SCREEN_PROFILE_PROFILESETTINGS = "Profile.ProfileSettings"
@@ -61,8 +58,8 @@ export const SCREEN_PROFILE_SEARCHPARAMETERS = "Profile.SearchParameters"
 export const SCREEN_PROFILE_SETTINGS = "Profile.Settings"
 export const SCREEN_PROFILE_ADVANCED_SETTINGS = "Profile.AdvancedSettings"
 
-export const DEFAULT_COLOR_PRIMARY = '#EC407A';
-export const DEFAULT_COLOR_SECONDARY = '#28C4ED';
+export const DEFAULT_COLOR_PRIMARY = '#3DBE72';
+export const DEFAULT_COLOR_SECONDARY = '#FBBC3C';
 
 export const EMPTY_STRING = "...";
 

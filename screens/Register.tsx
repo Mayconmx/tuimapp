@@ -124,7 +124,10 @@ const Register = ({ route, navigation }: Props) => {
 
   function getDateInputLocale(): string {
     const [locale] = Localization.getLocales()
-    return locale.languageTag.startsWith("de") ? "de" : "en-GB";
+    const tag = locale.languageTag;
+    if (tag.startsWith("de")) return "de";
+    if (tag.startsWith("pt")) return "pt";
+    return "en-GB";
   }
 
   return (

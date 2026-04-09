@@ -1,5 +1,5 @@
 import React from "react";
-import { Search, Likes, Messages, YourProfile, Donate } from "../screens";
+import { Search, Likes, Messages, YourProfile } from "../screens";
 import * as Global from "../Global";
 import * as URL from "../URL";
 import * as I18N from "../i18n";
@@ -24,7 +24,6 @@ const YourProfileScreen: React.FC<any> = (props) => <YourProfile {...props} />;
 const MessagesScreen: React.FC<any> = (props) => <Messages {...props} />;
 const SearchScreen: React.FC<any> = (props) => <Search {...props} />;
 const LikesScreen: React.FC<any> = (props) => <Likes {...props} />;
-const DonateScreen: React.FC<any> = (props) => <Donate {...props} />;
 
 type Props = BottomTabScreenProps<RootStackParamList, 'Main'>
 const Main = ({ route, navigation }: Props) => {
@@ -111,7 +110,6 @@ const Main = ({ route, navigation }: Props) => {
         case Global.SCREEN_CHAT: Global.SetStorage(Global.STORAGE_SCREEN, Global.SCREEN_CHAT); break;
         case Global.SCREEN_SEARCH: Global.SetStorage(Global.STORAGE_SCREEN, Global.SCREEN_SEARCH); break;
         case Global.SCREEN_LIKES: Global.SetStorage(Global.STORAGE_SCREEN, Global.SCREEN_LIKES); break;
-        case Global.SCREEN_DONATE: Global.SetStorage(Global.STORAGE_SCREEN, Global.SCREEN_DONATE); break;
       }
     }
   }
@@ -192,21 +190,6 @@ const Main = ({ route, navigation }: Props) => {
           tabBarLabel: i18n.t('navigation.likes'),
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="heart" color={color} size={ICON_SIZE} />
-          ),
-        }}
-      />
-      <Tab.Screen
-        name={Global.SCREEN_DONATE}
-        component={DonateScreen}
-        listeners={{
-          tabPress: e => {
-            saveScreen(e.target);
-          },
-        }}
-        options={{
-          tabBarLabel: i18n.t('navigation.donate'),
-          tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="cash-multiple" color={color} size={ICON_SIZE} />
           ),
         }}
       />

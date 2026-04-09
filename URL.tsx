@@ -8,7 +8,6 @@ export const PATH_BOOLEAN_FALSE = "false"
 export const IMPRINT = DOMAIN + "/imprint"
 export const PRIVACY = DOMAIN + "/privacy"
 export const TOS = DOMAIN + "/tos"
-export const DONATE_LIST = DOMAIN + "/donate-list"
 
 export const AUTH_LOGIN = DOMAIN + "/login"
 export const AUTH_LOGOUT = DOMAIN + "/logout"
@@ -24,13 +23,11 @@ export const API_RESOURCE_SEARCH = DOMAIN + "/api/v1/resource/search"
 export const API_RESOURCE_ALERTS = DOMAIN + "/api/v1/resource/alerts"
 export const API_RESOURCE_CHATS = DOMAIN + "/api/v1/resource/chats"
 export const API_RESOURCE_CHATS_DETAIL = DOMAIN + "/api/v1/resource/chats/%s"
-export const API_RESOURCE_DONATE = DOMAIN + "/api/v1/resource/donate"
 export const API_RESOURCE_USER_ONBOARDING = DOMAIN + "/api/v1/resource/user/onboarding"
 export const API_RESOURCE_USER_BLOCKED = DOMAIN + "/api/v1/resource/blocked-users"
 export const API_RESOURCE_USER_LIKED = DOMAIN + "/api/v1/resource/liked-users"
 export const API_RESOURCE_USER_HIDDEN = DOMAIN + "/api/v1/resource/disliked-users"
 export const API_SEARCH = DOMAIN + "/api/v1/search/users"
-export const API_DONATE_RECENT = DOMAIN + "/api/v1/donate/recent/%s";
 export const API_MESSAGE_UPDATE = DOMAIN + "/api/v1/message/update/%s/%s";
 
 export const CATPCHA_GENERATE = DOMAIN + "/captcha/generate";

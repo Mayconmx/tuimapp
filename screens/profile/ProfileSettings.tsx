@@ -279,30 +279,6 @@ const ProfileSettings = ({ route, navigation }: Props) => {
             </View>
 
             <View style={{minWidth: 100}}>
-              <SelectModal disabled={false} multi={false} minItems={0} title={i18n.t('profile.misc-info.drugs.cannabis')}
-                data={[
-                  [UserMiscInfoEnum.DRUGS_CANNABIS, MiscInfoNameMap.get(UserMiscInfoEnum.DRUGS_CANNABIS)],
-                  [UserMiscInfoEnum.DRUGS_CANNABIS_SOMETIMES, MiscInfoNameMap.get(UserMiscInfoEnum.DRUGS_CANNABIS_SOMETIMES)],
-                  [UserMiscInfoEnum.DRUGS_CANNABIS_NO, MiscInfoNameMap.get(UserMiscInfoEnum.DRUGS_CANNABIS_NO)],
-                ]}
-                selected={miscInfoCannabis} onValueChanged={function (id: number, checked: boolean): void {
-                  updateMiscInfo(id, checked, true);
-                }}></SelectModal>
-            </View>
-
-            <View style={{minWidth: 100}}>
-              <SelectModal disabled={false} multi={false} minItems={0} title={i18n.t('profile.misc-info.drugs.other')}
-                data={[
-                  [UserMiscInfoEnum.DRUGS_OTHER, MiscInfoNameMap.get(UserMiscInfoEnum.DRUGS_OTHER)],
-                  [UserMiscInfoEnum.DRUGS_OTHER_SOMETIMES, MiscInfoNameMap.get(UserMiscInfoEnum.DRUGS_OTHER_SOMETIMES)],
-                  [UserMiscInfoEnum.DRUGS_OTHER_NO, MiscInfoNameMap.get(UserMiscInfoEnum.DRUGS_OTHER_NO)],
-                ]}
-                selected={miscInfoHardDrugs} onValueChanged={function (id: number, checked: boolean): void {
-                  updateMiscInfo(id, checked, true);
-                }}></SelectModal>
-            </View>
-
-            <View style={{minWidth: 100}}>
               <SelectModal disabled={false} multi={false} minItems={0} title={i18n.t('profile.misc-info.gender-identity.title')}
                 data={[
                   [UserMiscInfoEnum.GENDER_IDENTITY_CIS, MiscInfoNameMap.get(UserMiscInfoEnum.GENDER_IDENTITY_CIS)],

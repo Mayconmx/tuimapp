@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tuim — Design System</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green:     #3DBE72;
+    --lime:      #7DC95A;
+    --amber:     #FBBC3C;
+    --teal:      #1AA97B;
+    --offwhite:  #F2F2EC;
+    --dark:      #1A1A2E;
+    --gray-800:  #2D2D3A;
+    --gray-600:  #5A5A72;
+    --gray-400:  #9494A8;
+    --gray-200:  #E8E8F0;
+    --white:     #FFFFFF;
+
+    --green-light: #D0F5E1;
+    --amber-light: #FEF3D0;
+    --teal-light:  #C8EDE3;
+
+    --radius-sm: 8px;
+    --radius-md: 14px;
+    --radius-lg: 24px;
+    --radius-full: 999px;
+
+    --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
+    --shadow-md: 0 8px 24px rgba(0,0,0,0.10);
+    --shadow-lg: 0 20px 60px rgba(0,0,0,0.14);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--dark);
+    color: var(--white);
+    min-height: 100vh;
+  }
+
+  /* ── HEADER ── */
+  header {
+    padding: 80px 60px 60px;
+    background: linear-gradient(135deg, var(--dark) 0%, var(--gray-800) 100%);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(61,190,114,0.12) 0%, transparent 70%);
+    top: -200px; right: -100px;
+    pointer-events: none;
+  }
+  .logo-mark {
+    display: flex; align-items: center; gap: 14px; margin-bottom: 40px;
+  }
+  .logo-mark .dot {
+    width: 44px; height: 44px; border-radius: 14px;
+    background: linear-gradient(135deg, var(--green), var(--teal));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px; font-weight: 800; color: white;
+    box-shadow: 0 8px 20px rgba(61,190,114,0.4);
+  }
+  .logo-mark span { font-size: 28px; font-weight: 800; letter-spacing: -0.5px; }
+  header h1 { font-size: 52px; font-weight: 800; letter-spacing: -2px; line-height: 1.1; }
+  header h1 span { background: linear-gradient(90deg, var(--green), var(--amber)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  header p { margin-top: 16px; color: var(--gray-400); font-size: 18px; max-width: 480px; line-height: 1.6; }
+  .badge { display: inline-block; margin-top: 24px; padding: 6px 16px; border-radius: var(--radius-full); background: rgba(61,190,114,0.15); color: var(--green); font-size: 13px; font-weight: 600; border: 1px solid rgba(61,190,114,0.3); }
+
+  /* ── MAIN LAYOUT ── */
+  main { max-width: 1200px; margin: 0 auto; padding: 60px 40px; }
+  section { margin-bottom: 80px; }
+  .section-label {
+    font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--gray-400); margin-bottom: 8px;
+  }
+  .section-title { font-size: 32px; font-weight: 800; letter-spacing: -1px; margin-bottom: 32px; }
+
+  /* ── COLORS ── */
+  .color-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+  .color-card {
+    border-radius: var(--radius-md); overflow: hidden;
+    box-shadow: var(--shadow-md); transition: transform 0.2s;
+  }
+  .color-card:hover { transform: translateY(-4px); }
+  .color-swatch { height: 140px; }
+  .color-info { padding: 16px; background: var(--gray-800); }
+  .color-name { font-weight: 700; font-size: 14px; }
+  .color-hex { font-size: 13px; color: var(--gray-400); margin-top: 4px; font-family: monospace; }
+  .color-use { font-size: 11px; color: var(--gray-400); margin-top: 8px; line-height: 1.4; }
+
+  /* ── TINTS ── */
+  .tints-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .tint-row { background: var(--gray-800); border-radius: var(--radius-md); padding: 20px; }
+  .tint-row h4 { font-size: 13px; font-weight: 600; color: var(--gray-400); margin-bottom: 14px; }
+  .tint-swatches { display: flex; gap: 8px; }
+  .tint { flex: 1; height: 40px; border-radius: var(--radius-sm); }
+  .tint-labels { display: flex; gap: 8px; margin-top: 6px; }
+  .tint-label { flex: 1; font-size: 10px; color: var(--gray-400); text-align: center; font-family: monospace; }
+
+  /* ── TYPOGRAPHY ── */
+  .type-scale { display: flex; flex-direction: column; gap: 24px; }
+  .type-item { display: flex; align-items: baseline; gap: 24px; padding: 20px 24px; background: var(--gray-800); border-radius: var(--radius-md); }
+  .type-meta { min-width: 120px; }
+  .type-meta .name { font-size: 12px; font-weight: 600; color: var(--green); text-transform: uppercase; letter-spacing: 1px; }
+  .type-meta .spec { font-size: 11px; color: var(--gray-400); margin-top: 4px; font-family: monospace; }
+  .type-preview { flex: 1; }
+  .t-display    { font-size: 48px; font-weight: 800; letter-spacing: -2px; line-height: 1; }
+  .t-h1         { font-size: 36px; font-weight: 800; letter-spacing: -1px; }
+  .t-h2         { font-size: 28px; font-weight: 700; letter-spacing: -0.5px; }
+  .t-h3         { font-size: 22px; font-weight: 600; }
+  .t-body-lg    { font-size: 18px; font-weight: 400; color: var(--gray-200); }
+  .t-body       { font-size: 16px; font-weight: 400; color: var(--gray-200); }
+  .t-small      { font-size: 13px; font-weight: 400; color: var(--gray-400); }
+  .t-caption    { font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--gray-400); }
+
+  /* ── BUTTONS ── */
+  .buttons-grid { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
+  .btn {
+    padding: 14px 28px; border-radius: var(--radius-full); font-size: 15px; font-weight: 600;
+    font-family: 'Inter', sans-serif; border: none; cursor: pointer; transition: all 0.2s;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .btn-primary { background: linear-gradient(135deg, var(--green), var(--teal)); color: white; box-shadow: 0 8px 20px rgba(61,190,114,0.35); }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(61,190,114,0.45); }
+  .btn-amber { background: linear-gradient(135deg, var(--amber), #F5A623); color: var(--dark); box-shadow: 0 8px 20px rgba(251,188,60,0.35); }
+  .btn-amber:hover { transform: translateY(-2px); }
+  .btn-outline { background: transparent; color: var(--green); border: 2px solid var(--green); }
+  .btn-outline:hover { background: rgba(61,190,114,0.1); }
+  .btn-ghost { background: rgba(255,255,255,0.07); color: var(--white); }
+  .btn-ghost:hover { background: rgba(255,255,255,0.12); }
+  .btn-sm { padding: 9px 18px; font-size: 13px; }
+  .btn-lg { padding: 18px 36px; font-size: 17px; }
+  .btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none !important; }
+
+  /* ── INPUTS ── */
+  .inputs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .input-group { display: flex; flex-direction: column; gap: 8px; }
+  .input-label { font-size: 13px; font-weight: 600; color: var(--gray-400); letter-spacing: 0.3px; }
+  .input-field {
+    background: var(--gray-800); border: 1.5px solid rgba(255,255,255,0.1);
+    border-radius: var(--radius-sm); padding: 14px 16px; font-size: 15px;
+    color: var(--white); font-family: 'Inter', sans-serif; outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .input-field:focus { border-color: var(--green); box-shadow: 0 0 0 3px rgba(61,190,114,0.15); }
+  .input-field.error { border-color: #FF5757; }
+  .input-field.success { border-color: var(--green); }
+  .input-hint { font-size: 12px; color: var(--gray-400); }
+  .input-hint.error { color: #FF5757; }
+  .input-hint.success { color: var(--green); }
+
+  /* ── CARDS ── */
+  .cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .card {
+    background: var(--gray-800); border-radius: var(--radius-lg); padding: 28px;
+    border: 1px solid rgba(255,255,255,0.06); box-shadow: var(--shadow-md);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+  .card-icon { width: 52px; height: 52px; border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; font-size: 24px; margin-bottom: 20px; }
+  .card-icon.green { background: var(--green-light); }
+  .card-icon.amber { background: var(--amber-light); }
+  .card-icon.teal  { background: var(--teal-light); }
+  .card h3 { font-size: 18px; font-weight: 700; margin-bottom: 10px; }
+  .card p { font-size: 14px; color: var(--gray-400); line-height: 1.6; }
+  .card-tag { display: inline-block; margin-top: 20px; padding: 5px 12px; border-radius: var(--radius-full); font-size: 12px; font-weight: 600; }
+  .card-tag.green { background: var(--green-light); color: #1A6B3C; }
+  .card-tag.amber { background: var(--amber-light); color: #8B6300; }
+  .card-tag.teal  { background: var(--teal-light); color: #0A5540; }
+
+  /* ── BADGES ── */
+  .badges-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+  .badge-item { padding: 6px 14px; border-radius: var(--radius-full); font-size: 13px; font-weight: 600; }
+  .badge-green-filled  { background: var(--green); color: white; }
+  .badge-amber-filled  { background: var(--amber); color: var(--dark); }
+  .badge-teal-filled   { background: var(--teal); color: white; }
+  .badge-green-light   { background: var(--green-light); color: #1A6B3C; }
+  .badge-amber-light   { background: var(--amber-light); color: #8B6300; }
+  .badge-teal-light    { background: var(--teal-light); color: #0A5540; }
+  .badge-outline-green { background: transparent; border: 1.5px solid var(--green); color: var(--green); }
+  .badge-outline-amber { background: transparent; border: 1.5px solid var(--amber); color: var(--amber); }
+
+  /* ── GRADIENTS ── */
+  .gradients-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .gradient-card { border-radius: var(--radius-md); height: 120px; display: flex; align-items: flex-end; padding: 16px; box-shadow: var(--shadow-md); }
+  .gradient-card span { font-size: 12px; font-weight: 600; color: white; text-shadow: 0 1px 4px rgba(0,0,0,0.3); font-family: monospace; }
+
+  /* ── SPACING ── */
+  .spacing-row { display: flex; align-items: flex-end; gap: 16px; flex-wrap: wrap; }
+  .spacing-item { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+  .spacing-block { background: linear-gradient(135deg, var(--green), var(--teal)); border-radius: 4px; width: 40px; }
+  .spacing-label { font-size: 11px; color: var(--gray-400); text-align: center; font-family: monospace; }
+
+  /* ── PROFILE CARD PREVIEW ── */
+  .app-preview { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .profile-card {
+    background: linear-gradient(180deg, var(--gray-800) 0%, var(--dark) 100%);
+    border-radius: var(--radius-lg); overflow: hidden; border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: var(--shadow-lg);
+  }
+  .profile-img { height: 240px; background: linear-gradient(135deg, var(--teal), var(--green)); display: flex; align-items: center; justify-content: center; font-size: 80px; }
+  .profile-body { padding: 24px; }
+  .profile-name { font-size: 24px; font-weight: 800; }
+  .profile-sub  { font-size: 14px; color: var(--gray-400); margin-top: 4px; }
+  .profile-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px; }
+  .profile-actions { display: flex; gap: 12px; margin-top: 20px; }
+  .action-btn { flex: 1; padding: 14px; border-radius: var(--radius-full); border: none; font-size: 22px; cursor: pointer; transition: transform 0.2s; }
+  .action-btn:hover { transform: scale(1.1); }
+  .action-pass  { background: var(--gray-800); }
+  .action-like  { background: linear-gradient(135deg, var(--green), var(--teal)); box-shadow: 0 8px 20px rgba(61,190,114,0.4); }
+  .action-super { background: linear-gradient(135deg, var(--amber), #F5A623); box-shadow: 0 8px 20px rgba(251,188,60,0.4); }
+
+  .nav-preview {
+    background: var(--gray-800); border-radius: var(--radius-lg); padding: 20px 28px;
+    display: flex; justify-content: space-around; border: 1px solid rgba(255,255,255,0.06);
+    align-items: center;
+  }
+  .nav-item { display: flex; flex-direction: column; align-items: center; gap: 6px; cursor: pointer; }
+  .nav-icon { font-size: 24px; }
+  .nav-label { font-size: 11px; color: var(--gray-400); font-weight: 500; }
+  .nav-item.active .nav-label { color: var(--green); font-weight: 700; }
+  .nav-item.active .nav-icon { filter: none; }
+
+  /* ── TOKENS TABLE ── */
+  .tokens-table { width: 100%; border-collapse: collapse; }
+  .tokens-table th { text-align: left; padding: 12px 16px; font-size: 12px; font-weight: 700; color: var(--gray-400); text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .tokens-table td { padding: 14px 16px; font-size: 14px; border-bottom: 1px solid rgba(255,255,255,0.04); vertical-align: middle; }
+  .tokens-table tr:last-child td { border-bottom: none; }
+  .token-dot { width: 28px; height: 28px; border-radius: 8px; display: inline-block; vertical-align: middle; margin-right: 10px; }
+  .token-code { font-family: monospace; font-size: 13px; color: var(--amber); background: rgba(251,188,60,0.1); padding: 3px 8px; border-radius: 4px; }
+  .tokens-table tr:hover td { background: rgba(255,255,255,0.02); }
+
+  /* ── DIVIDER ── */
+  .divider { height: 1px; background: rgba(255,255,255,0.06); margin: 80px 0; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo-mark">
+    <div class="dot">T</div>
+    <span>Tuim</span>
+  </div>
+  <h1>Design <span>System</span></h1>
+  <p>Fundação visual do Tuim — cores, tipografia, componentes e tokens.</p>
+  <div class="badge">v1.0 · 2026</div>
+</header>
+
+<main>
+
+  <!-- COLORS -->
+  <section>
+    <div class="section-label">Fundação</div>
+    <div class="section-title">Paleta de Cores</div>
+
+    <div class="color-grid">
+      <div class="color-card">
+        <div class="color-swatch" style="background:#3DBE72;"></div>
+        <div class="color-info">
+          <div class="color-name">Verde Primário</div>
+          <div class="color-hex">#3DBE72</div>
+          <div class="color-use">Ação principal, botões, destaques, match</div>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background:#7DC95A;"></div>
+        <div class="color-info">
+          <div class="color-name">Verde Lima</div>
+          <div class="color-hex">#7DC95A</div>
+          <div class="color-use">Suporte, gradientes, estados positivos</div>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background:#FBBC3C;"></div>
+        <div class="color-info">
+          <div class="color-name">Âmbar</div>
+          <div class="color-hex">#FBBC3C</div>
+          <div class="color-use">Secundário, super-curtida, alertas, destaque</div>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background:#1AA97B;"></div>
+        <div class="color-info">
+          <div class="color-name">Teal</div>
+          <div class="color-hex">#1AA97B</div>
+          <div class="color-use">Gradientes, ícones, estados verificados</div>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="color-swatch" style="background:#F2F2EC;border-top:1px solid #ddd;"></div>
+        <div class="color-info">
+          <div class="color-name">Off-white</div>
+          <div class="color-hex">#F2F2EC</div>
+          <div class="color-use">Fundo claro, superfícies, texto sobre escuro</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TINTS -->
+  <section>
+    <div class="section-label">Fundação</div>
+    <div class="section-title">Tons e Variações</div>
+    <div class="tints-grid">
+      <div class="tint-row">
+        <h4>Verde Primário</h4>
+        <div class="tint-swatches">
+          <div class="tint" style="background:#D0F5E1;"></div>
+          <div class="tint" style="background:#9DE7BC;"></div>
+          <div class="tint" style="background:#3DBE72;"></div>
+          <div class="tint" style="background:#2A8B52;"></div>
+          <div class="tint" style="background:#1A5733;"></div>
+        </div>
+        <div class="tint-labels">
+          <span class="tint-label">100</span>
+          <span class="tint-label">300</span>
+          <span class="tint-label">500</span>
+          <span class="tint-label">700</span>
+          <span class="tint-label">900</span>
+        </div>
+      </div>
+      <div class="tint-row">
+        <h4>Âmbar</h4>
+        <div class="tint-swatches">
+          <div class="tint" style="background:#FEF3D0;"></div>
+          <div class="tint" style="background:#FDE18A;"></div>
+          <div class="tint" style="background:#FBBC3C;"></div>
+          <div class="tint" style="background:#C48A10;"></div>
+          <div class="tint" style="background:#7A5508;"></div>
+        </div>
+        <div class="tint-labels">
+          <span class="tint-label">100</span>
+          <span class="tint-label">300</span>
+          <span class="tint-label">500</span>
+          <span class="tint-label">700</span>
+          <span class="tint-label">900</span>
+        </div>
+      </div>
+      <div class="tint-row">
+        <h4>Teal</h4>
+        <div class="tint-swatches">
+          <div class="tint" style="background:#C8EDE3;"></div>
+          <div class="tint" style="background:#7DD3BC;"></div>
+          <div class="tint" style="background:#1AA97B;"></div>
+          <div class="tint" style="background:#127A59;"></div>
+          <div class="tint" style="background:#0A4D38;"></div>
+        </div>
+        <div class="tint-labels">
+          <span class="tint-label">100</span>
+          <span class="tint-label">300</span>
+          <span class="tint-label">500</span>
+          <span class="tint-label">700</span>
+          <span class="tint-label">900</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GRADIENTS -->
+  <section>
+    <div class="section-label">Fundação</div>
+    <div class="section-title">Gradientes</div>
+    <div class="gradients-grid">
+      <div class="gradient-card" style="background:linear-gradient(135deg,#3DBE72,#1AA97B);">
+        <span>Verde → Teal</span>
+      </div>
+      <div class="gradient-card" style="background:linear-gradient(135deg,#3DBE72,#7DC95A);">
+        <span>Verde → Lima</span>
+      </div>
+      <div class="gradient-card" style="background:linear-gradient(135deg,#FBBC3C,#F5A623);">
+        <span>Âmbar → Ouro</span>
+      </div>
+      <div class="gradient-card" style="background:linear-gradient(135deg,#1AA97B,#3DBE72,#FBBC3C);">
+        <span>Teal → Verde → Âmbar</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- TYPOGRAPHY -->
+  <section>
+    <div class="section-label">Tipografia</div>
+    <div class="section-title">Escala de Texto</div>
+    <div class="type-scale">
+      <div class="type-item">
+        <div class="type-meta"><div class="name">Display</div><div class="spec">48px · 800</div></div>
+        <div class="type-preview t-display">Tuim</div>
+      </div>
+      <div class="type-item">
+        <div class="type-meta"><div class="name">H1</div><div class="spec">36px · 800</div></div>
+        <div class="type-preview t-h1">Encontre seu match</div>
+      </div>
+      <div class="type-item">
+        <div class="type-meta"><div class="name">H2</div><div class="spec">28px · 700</div></div>
+        <div class="type-preview t-h2">Interesses em comum</div>
+      </div>
+      <div class="type-item">
+        <div class="type-meta"><div class="name">H3</div><div class="spec">22px · 600</div></div>
+        <div class="type-preview t-h3">Sobre mim</div>
+      </div>
+      <div class="type-item">
+        <div class="type-meta"><div class="name">Body LG</div><div class="spec">18px · 400</div></div>
+        <div class="type-preview t-body-lg">Adoro viajar e conhecer pessoas novas!</div>
+      </div>
+      <div class="type-item">
+        <div class="type-meta"><div class="name">Body</div><div class="spec">16px · 400</div></div>
+        <div class="type-preview t-body">Mensagens só podem ser enviadas após um match.</div>
+      </div>
+      <div class="type-item">
+        <div class="type-meta"><div class="name">Small</div><div class="spec">13px · 400</div></div>
+        <div class="type-preview t-small">Ativo hoje · 12 km de distância</div>
+      </div>
+      <div class="type-item">
+        <div class="type-meta"><div class="name">Caption</div><div class="spec">11px · 700</div></div>
+        <div class="type-preview t-caption">Interesses em comum</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BUTTONS -->
+  <section>
+    <div class="section-label">Componentes</div>
+    <div class="section-title">Botões</div>
+    <div class="buttons-grid">
+      <button class="btn btn-primary">Curtir agora</button>
+      <button class="btn btn-amber">Super curtida ⭐</button>
+      <button class="btn btn-outline">Ver perfil</button>
+      <button class="btn btn-ghost">Cancelar</button>
+      <button class="btn btn-primary btn-sm">Pequeno</button>
+      <button class="btn btn-primary btn-lg">Grande</button>
+      <button class="btn btn-primary" disabled>Desativado</button>
+    </div>
+  </section>
+
+  <!-- INPUTS -->
+  <section>
+    <div class="section-label">Componentes</div>
+    <div class="section-title">Campos de Entrada</div>
+    <div class="inputs-grid">
+      <div class="input-group">
+        <label class="input-label">E-mail</label>
+        <input class="input-field" type="text" placeholder="voce@email.com">
+      </div>
+      <div class="input-group">
+        <label class="input-label">Senha</label>
+        <input class="input-field" type="password" placeholder="••••••••">
+      </div>
+      <div class="input-group">
+        <label class="input-label">Sucesso</label>
+        <input class="input-field success" type="text" value="usuario@email.com">
+        <span class="input-hint success">✓ E-mail válido</span>
+      </div>
+      <div class="input-group">
+        <label class="input-label">Erro</label>
+        <input class="input-field error" type="text" value="email-invalido">
+        <span class="input-hint error">✗ Endereço de e-mail inválido</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- BADGES -->
+  <section>
+    <div class="section-label">Componentes</div>
+    <div class="section-title">Badges & Tags</div>
+    <div class="badges-row">
+      <span class="badge-item badge-green-filled">Online</span>
+      <span class="badge-item badge-amber-filled">Super curtida</span>
+      <span class="badge-item badge-teal-filled">Verificado</span>
+      <span class="badge-item badge-green-light">Match!</span>
+      <span class="badge-item badge-amber-light">Destaque</span>
+      <span class="badge-item badge-teal-light">Novo</span>
+      <span class="badge-item badge-outline-green">Solteiro(a)</span>
+      <span class="badge-item badge-outline-amber">Em aberto</span>
+    </div>
+  </section>
+
+  <!-- CARDS -->
+  <section>
+    <div class="section-label">Componentes</div>
+    <div class="section-title">Cards</div>
+    <div class="cards-grid">
+      <div class="card">
+        <div class="card-icon green">💚</div>
+        <h3>Matches</h3>
+        <p>Conecte-se com pessoas que curtiram você de volta e comecem a conversar.</p>
+        <span class="card-tag green">Match</span>
+      </div>
+      <div class="card">
+        <div class="card-icon amber">⭐</div>
+        <h3>Super Curtida</h3>
+        <p>Mostre que você está muito interessado — o perfil aparece com destaque especial.</p>
+        <span class="card-tag amber">Destaque</span>
+      </div>
+      <div class="card">
+        <div class="card-icon teal">✅</div>
+        <h3>Verificação</h3>
+        <p>Prove que seu perfil é real envie uma foto de verificação e ganhe o selo.</p>
+        <span class="card-tag teal">Verificado</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- APP PREVIEW -->
+  <section>
+    <div class="section-label">Preview</div>
+    <div class="section-title">Componentes do App</div>
+    <div class="app-preview">
+      <div class="profile-card">
+        <div class="profile-img">😊</div>
+        <div class="profile-body">
+          <div class="profile-name">Ana, 24</div>
+          <div class="profile-sub">📍 São Paulo · 8 km</div>
+          <div class="profile-tags">
+            <span class="badge-item badge-green-light" style="font-size:12px;">Música</span>
+            <span class="badge-item badge-teal-light" style="font-size:12px;">Viagens</span>
+            <span class="badge-item badge-amber-light" style="font-size:12px;">Culinária</span>
+          </div>
+          <div class="profile-actions">
+            <button class="action-btn action-pass">✕</button>
+            <button class="action-btn action-super">⭐</button>
+            <button class="action-btn action-like">♥</button>
+          </div>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <div class="nav-preview">
+          <div class="nav-item active">
+            <div class="nav-icon" style="color:#3DBE72;">🔍</div>
+            <div class="nav-label" style="color:#3DBE72;">Busca</div>
+          </div>
+          <div class="nav-item">
+            <div class="nav-icon">❤️</div>
+            <div class="nav-label">Curtidas</div>
+          </div>
+          <div class="nav-item">
+            <div class="nav-icon">💬</div>
+            <div class="nav-label">Chat</div>
+          </div>
+          <div class="nav-item">
+            <div class="nav-icon">👤</div>
+            <div class="nav-label">Perfil</div>
+          </div>
+        </div>
+
+        <div style="background:var(--gray-800);border-radius:var(--radius-md);padding:24px;border:1px solid rgba(255,255,255,0.06);">
+          <div style="font-size:13px;color:var(--gray-400);margin-bottom:16px;font-weight:600;text-transform:uppercase;letter-spacing:1px;">Uso de CSS / RN</div>
+          <pre style="font-family:monospace;font-size:13px;color:#7DC95A;line-height:1.8;">primary:   #3DBE72
+lime:      #7DC95A
+amber:     #FBBC3C
+teal:      #1AA97B
+offwhite:  #F2F2EC
+dark:      #1A1A2E</pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPACING -->
+  <section>
+    <div class="section-label">Fundação</div>
+    <div class="section-title">Espaçamento</div>
+    <div class="spacing-row">
+      <div class="spacing-item"><div class="spacing-block" style="height:4px;"></div><div class="spacing-label">4px<br>xs</div></div>
+      <div class="spacing-item"><div class="spacing-block" style="height:8px;"></div><div class="spacing-label">8px<br>sm</div></div>
+      <div class="spacing-item"><div class="spacing-block" style="height:12px;"></div><div class="spacing-label">12px<br>md</div></div>
+      <div class="spacing-item"><div class="spacing-block" style="height:16px;"></div><div class="spacing-label">16px<br>lg</div></div>
+      <div class="spacing-item"><div class="spacing-block" style="height:24px;"></div><div class="spacing-label">24px<br>xl</div></div>
+      <div class="spacing-item"><div class="spacing-block" style="height:32px;"></div><div class="spacing-label">32px<br>2xl</div></div>
+      <div class="spacing-item"><div class="spacing-block" style="height:48px;"></div><div class="spacing-label">48px<br>3xl</div></div>
+      <div class="spacing-item"><div class="spacing-block" style="height:64px;"></div><div class="spacing-label">64px<br>4xl</div></div>
+    </div>
+  </section>
+
+  <!-- TOKENS TABLE -->
+  <section>
+    <div class="section-label">Referência</div>
+    <div class="section-title">Tokens de Cor</div>
+    <div style="background:var(--gray-800);border-radius:var(--radius-md);overflow:hidden;border:1px solid rgba(255,255,255,0.06);">
+      <table class="tokens-table">
+        <thead>
+          <tr>
+            <th>Token</th>
+            <th>Valor</th>
+            <th>Uso</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="token-dot" style="background:#3DBE72;"></span>green</td>
+            <td><span class="token-code">#3DBE72</span></td>
+            <td style="color:var(--gray-400);">Ação primária, CTAs, match</td>
+          </tr>
+          <tr>
+            <td><span class="token-dot" style="background:#7DC95A;"></span>lime</td>
+            <td><span class="token-code">#7DC95A</span></td>
+            <td style="color:var(--gray-400);">Gradiente, suporte ao verde</td>
+          </tr>
+          <tr>
+            <td><span class="token-dot" style="background:#FBBC3C;"></span>amber</td>
+            <td><span class="token-code">#FBBC3C</span></td>
+            <td style="color:var(--gray-400);">Secundário, super curtida, alertas</td>
+          </tr>
+          <tr>
+            <td><span class="token-dot" style="background:#1AA97B;"></span>teal</td>
+            <td><span class="token-code">#1AA97B</span></td>
+            <td style="color:var(--gray-400);">Gradientes, verificação, ícones</td>
+          </tr>
+          <tr>
+            <td><span class="token-dot" style="background:#F2F2EC;border:1px solid #ddd;"></span>offwhite</td>
+            <td><span class="token-code">#F2F2EC</span></td>
+            <td style="color:var(--gray-400);">Fundo claro, superfícies</td>
+          </tr>
+          <tr>
+            <td><span class="token-dot" style="background:#1A1A2E;border:1px solid #444;"></span>dark</td>
+            <td><span class="token-code">#1A1A2E</span></td>
+            <td style="color:var(--gray-400);">Fundo principal (dark mode)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+</main>
+
+</body>
+</html>

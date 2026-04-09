@@ -175,7 +175,7 @@ const Login = ({ route: _r, navigation: _n }: Props) => {
           <View style={{ minHeight: height }}>
             <Image resizeMode='contain' style={{ height: 200, width: '100%', marginTop: 24 }} source={splash} />
 
-            <Text style={{ textAlign: 'center', marginBottom: 48, marginTop: 24, fontSize: 32, fontWeight: '500' }}>Alovoa</Text>
+            <Text style={{ textAlign: 'center', marginBottom: 48, marginTop: 24, fontSize: 32, fontWeight: '500' }}>Tuim</Text>
 
             <TextInput
               style={{ backgroundColor: colors.background }}

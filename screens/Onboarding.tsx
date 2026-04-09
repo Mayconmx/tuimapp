@@ -175,7 +175,7 @@ const Onboarding = ({route: _r, navigation: _n}: Props) => {
     dto.interests = interests.map(i => i.text);
     dto.intention = Number(intention);
     dto.notificationLike = isNotificationLike;
-    dto.notificationChat = isNotificationLike;
+    dto.notificationChat = isNotificationChat;
 
     try {
       bodyFormData.append('data', JSON.stringify(dto));

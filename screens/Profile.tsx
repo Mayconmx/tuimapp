@@ -67,7 +67,6 @@ const Profile = ({ route, navigation }: Props) => {
   const [distance, setDistance] = React.useState(0);
   const [age, setAge] = React.useState(0);
   const [profilePicture, setProfilePicture] = React.useState("");
-  const [donated, setDonated] = React.useState(0);
   const [blocks, setBlocks] = React.useState(0);
   const [reports, setReports] = React.useState(0);
   const [minAge, setMinAge] = React.useState(MIN_AGE);
@@ -138,7 +137,6 @@ const Profile = ({ route, navigation }: Props) => {
     setCompatible(user.compatible);
     setDistance(user.distanceToUser);
     setName(user.firstName);
-    setDonated(user.totalDonations);
     setAge(user.age);
     setProfilePicture(user.profilePicture);
     setBlocked(user.blockedByCurrentUser);
@@ -453,12 +451,6 @@ const Profile = ({ route, navigation }: Props) => {
                 <Chip icon="smoking" style={[styles.marginRight4, styles.marginBottom4]}>
                   <Text>{getMiscInfoText(MiscInfoDrugsTobaccoNameMap)}</Text>
                 </Chip>
-                <Chip icon="cannabis" style={[styles.marginRight4, styles.marginBottom4]}>
-                  <Text>{getMiscInfoText(MiscInfoDrugsCannabisNameMap)}</Text>
-                </Chip>
-                <Chip icon="pill" style={[styles.marginRight4, styles.marginBottom4]}>
-                  <Text>{getMiscInfoText(MiscInfoDrugsOtherNameMap)}</Text>
-                </Chip>
               </View>
 
               <View style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap' }}>
@@ -476,11 +468,6 @@ const Profile = ({ route, navigation }: Props) => {
           <View style={{ marginTop: 16 }}>
             <Text style={style.title}>{i18n.t('profile.profile-page.additional')}</Text>
             <View style={{ paddingBottom: 4, display: 'flex', flexDirection: 'row', flexWrap: 'wrap' }}>
-              <Tooltip title={i18n.t('profile.tooltip.donated')} leaveTouchDelay={0}>
-                <Chip icon="hand-coin" style={[styles.marginRight4, styles.marginBottom4]}>
-                  <Text>{String(donated) + ' €'}</Text>
-                </Chip>
-              </Tooltip>
               <Tooltip title={i18n.t('profile.tooltip.blocks')} leaveTouchDelay={0}>
                 <Chip icon="account-cancel" style={[styles.marginRight4, styles.marginBottom4]}>
                   <Text>{'# ' + blocks}</Text>

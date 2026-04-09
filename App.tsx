@@ -20,7 +20,7 @@ import {
   useFonts, Montserrat_400Regular, Montserrat_500Medium, Montserrat_500Medium_Italic,
   Montserrat_600SemiBold, Montserrat_700Bold, Montserrat_700Bold_Italic
 } from '@expo-google-fonts/montserrat';
-import { enGB, en, de, registerTranslation } from 'react-native-paper-dates'
+import { enGB, en, de, pt, registerTranslation } from 'react-native-paper-dates'
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { RootStackParamList } from "./myTypes";
 
@@ -32,6 +32,8 @@ const Stack = createStackNavigator<RootStackParamList>();
 registerTranslation('en-GB', enGB);
 registerTranslation('en', en);
 registerTranslation('de', de);
+registerTranslation('pt', pt);
+registerTranslation('pt-BR', pt);
 
 export type TransitionSpec =
   | {

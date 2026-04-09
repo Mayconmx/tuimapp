@@ -2,7 +2,6 @@ import * as Global from "./Global";
 
 export type RootStackParamList = {
   [Global.SCREEN_CHAT]: undefined;
-  [Global.SCREEN_DONATE]: undefined;
   [Global.SCREEN_LIKES]: undefined;
   Login: undefined;
   Main: object;
@@ -50,7 +49,6 @@ export type RootStackParamList = {
 
 export type CardItemT = {
   user: UserDto;
-  donation?: number;
   unitsImperial?: boolean;
   swiper?: any;
   message?: string;
@@ -113,9 +111,6 @@ export type InterestModalT = {
   setInterestsExternal?: (interests: UserInterest[]) => void;
 };
 
-export type DonationDtoListModel = {
-  list: DonationDto[];
-}
 
 export type RegisterBody = {
   email?: string
@@ -187,9 +182,8 @@ export type DataT = {
 export type UserDto = {
   uuid: string
   email?: string //is null when not current user
-  firstName: string
-  age: number
-  donationAmount: number
+  firstName: string;
+  age: number;
   gender: Gender;
   hasAudio: boolean;
   audio: string;
@@ -206,7 +200,6 @@ export type UserDto = {
   country: string;
   distanceToUser: number;
   commonInterests: UserInterest[];
-  totalDonations: number;
   numBlockedByUsers: number;
   numReports: number;
   blockedByCurrentUser: boolean;
@@ -240,12 +233,6 @@ export type UserPrompt = {
   text: string
 }
 
-export type DonationDto = {
-  id: number;
-  date: Date;
-  user: UserDto;
-  amount: number;
-}
 
 export type MessageDto = {
   id: number;
@@ -358,15 +345,7 @@ export type YourProfileResource = {
   "settings.ignoreIntention": boolean;
 }
 
-export type DonateResource = {
-  user: UserDto;
-}
 
-export type DonateSearchFilterResource = {
-  currUser: UserDto;
-  donations: DonationDto[];
-  filter: number;
-}
 
 export type ChatDetailResource = {
   user: UserDto;
@@ -492,7 +471,6 @@ export enum SearchParamsSortE {
   ACTIVE_DATE = 2,
   INTEREST = 3,
   DEFAULT = 4,
-  DONATION_TOTAL = 5,
   NEWEST_USER = 6,
 }
 

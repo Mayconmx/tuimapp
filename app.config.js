@@ -3,10 +3,10 @@ const EXPO_OWNER = process.env.EXPO_OWNER;
 
 module.exports = {
   "expo": {
-    "name": "Alovoa",
-    "slug": "alovoa-expo",
-    "version": "2.3.4",
-    "scheme": "alovoa",
+    "name": "Tuim",
+    "slug": "tuim-app",
+    "version": "1.0.0",
+    "scheme": "tuim",
     "orientation": "portrait",
     "userInterfaceStyle": "automatic",
     "icon": "./assets/icon.png",
@@ -28,10 +28,10 @@ module.exports = {
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ec407a",
+      "backgroundColor": "#3DBE72",
       "dark": {
         "image": "./assets/splash.png",
-        "backgroundColor": "#121212"
+        "backgroundColor": "#1A1A2E"
       }
     },
     "updates": {
@@ -45,34 +45,34 @@ module.exports = {
     "ios": {
       "supportsTablet": true,
       "usesAppleSignIn": true,
-      "bundleIdentifier": "com.alovoa.expo",
+      "bundleIdentifier": "com.tuim.app",
       "associatedDomains": [
-        "applinks:alovoa.com"
+        "applinks:tuim.app"
       ],
       "infoPlist": {
         "LSApplicationQueriesSchemes": [
-          "alovoa"
+          "tuim"
         ],
         "ITSAppUsesNonExemptEncryption": false,
-        "NSLocationWhenInUseUsageDescription": "This app uses the location to list other users in close proximity",
-        "NSDocumentsFolderUsageDescription": "This app uses the Documents folder to store the requested user data",
-        "NSMicrophoneUsageDescription": "This app uses the microphone to record the users voice for other users"
+        "NSLocationWhenInUseUsageDescription": "Este app usa a localização para encontrar usuários próximos",
+        "NSDocumentsFolderUsageDescription": "Este app usa a pasta Documentos para armazenar os dados do usuário",
+        "NSMicrophoneUsageDescription": "Este app usa o microfone para gravar áudio do usuário"
       },
-      "buildNumber": "37"
+      "buildNumber": "1"
     },
     "android": {
       "icon": "./assets/icon-round.png",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "monochromeImage": "./assets/monochrome-icon.png",
-        "backgroundColor": "#ec407a"
+        "backgroundColor": "#3DBE72"
       },
       "intentFilters": [
         {
           "action": "VIEW",
           "data": [
             {
-              "scheme": "alovoa"
+              "scheme": "tuim"
             }
           ],
           "category": [
@@ -81,7 +81,7 @@ module.exports = {
           ]
         }
       ],
-      "package": "com.alovoa.expo",
+      "package": "com.tuim.app",
       "softwareKeyboardLayoutMode": "pan",
       "permissions": [
         "android.permission.ACCESS_COARSE_LOCATION",
@@ -92,7 +92,7 @@ module.exports = {
         "checkReleaseBuilds": false,
         "abortOnError": false
       },
-      "versionCode": 48
+      "versionCode": 1
     },
     "web": {
       "favicon": "./assets/favicon.png"

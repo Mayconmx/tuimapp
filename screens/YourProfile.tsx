@@ -21,7 +21,7 @@ import * as Clipboard from 'expo-clipboard';
 import Alert from "../components/Alert";
 import { BottomTabScreenProps } from "@react-navigation/bottom-tabs";
 
-const userdataFileName = "userdata-alovoa.json"
+const userdataFileName = "userdata-tuim.json"
 const MIME_JSON = "application/json";
 
 const i18n = I18N.getI18n()
@@ -112,7 +112,7 @@ const YourProfile = ({ route, navigation }: Props) => {
     } else if (Platform.OS === 'ios') {
       const response = await Global.Fetch(Global.format(URL.USER_USERDATA, uuid));
       const userData = JSON.stringify(response.data);
-      let fileName = FileSystem.documentDirectory + '/alovoa.json';
+      let fileName = FileSystem.documentDirectory + '/tuim.json';
       await FileSystem.writeAsStringAsync(fileName, userData, { encoding: FileSystem.EncodingType.UTF8 });
       Global.ShowToast(i18n.t('profile.download-userdata-success'));
       if (await Sharing.isAvailableAsync()) {
@@ -152,9 +152,6 @@ const YourProfile = ({ route, navigation }: Props) => {
         <View style={[styles.containerProfileItem, { marginTop: 12, minHeight: height }]}>
           <Text style={[styles.name]}>{name + ", " + age}</Text>
           <View style={{ marginBottom: 48, marginTop: 12 }}>
-            <Card mode="contained" style={{ padding: 12 }}>
-              <Text style={{ textAlign: 'center' }}>{i18n.t('profile.donated') + ": " + String(user ? user.totalDonations : 0) + ' €'}</Text>
-            </Card>
           </View>
 
           <Badge size={12} visible={imcompletePhotos} style={styles.badge} />

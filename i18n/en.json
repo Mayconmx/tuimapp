@@ -45,7 +45,7 @@
             "warning": "Can only be changed again after 24 hours"
         },
         "gender": "Looking for...",
-        "interest-alert-delete": "Interesse '%s' entfernen?",
+        "interest-alert-delete": "Remove interest '%s'?",
         "units": {
             "title": "Units",
             "si": "SI",
